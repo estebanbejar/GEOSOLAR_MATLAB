@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seleccionar ubicación</title><link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="picker.css">
+<script src="vendor/leaflet.js" defer></script><script src="picker.js" defer></script></head>
+<body>
+<header><span class="eyebrow">GEOMETRÍA SOLAR · UBICACIONES</span><h1>Elige el emplazamiento</h1><p>Busca una localidad y ajusta el punto exacto sobre el mapa.</p></header>
+<main><aside>
+<form id="searchForm"><label for="query">Localidad o código postal</label><div class="search"><input id="query" placeholder="Por ejemplo: Béjar" maxlength="150" required minlength="2"><button id="searchButton">Buscar</button></div></form>
+<div id="searchStatus" role="status" aria-live="polite">Elige entre los resultados por región y país.</div>
+<div id="results" aria-label="Resultados de localidades"></div>
+<section class="selection"><h2>Ubicación seleccionada</h2>
+<label for="name">Nombre del emplazamiento</label><input id="name" placeholder="Nombre de la instalación" maxlength="200">
+<div class="coordinates"><div><label for="lat">Latitud (° N)</label><input id="lat" type="number" step="any" min="-90" max="90" required></div><div><label for="lon">Longitud (° E)</label><input id="lon" type="number" step="any" min="-180" max="180" required></div></div>
+<p id="pointHint">Haz clic en el mapa o arrastra el marcador para afinar las coordenadas.</p>
+<div id="validation" role="alert"></div>
+<div class="actions"><button id="accept" class="primary">Usar esta ubicación</button><button id="cancel" class="secondary">Cancelar</button></div>
+</section>
+<section id="pvgis" hidden><h2>Configuración de descarga PVGIS</h2><p>El punto seleccionado se añadirá a una lista de ubicaciones.</p>
+<div class="coordinates"><div><label for="slope">Inclinación (°)</label><input id="slope" type="number" min="0" max="90" value="30" step="any"></div><div><label for="azimuth">Acimut (° desde Sur)</label><input id="azimuth" type="number" min="-180" max="180" value="0" step="any"></div></div>
+<div class="coordinates"><div><label for="startyear">Año inicial</label><input id="startyear" type="number" min="2005" max="2023" value="2023"></div><div><label for="endyear">Año final</label><input id="endyear" type="number" min="2005" max="2023" value="2023"></div></div>
+<label class="check"><input id="horizon" type="checkbox" checked> Usar horizonte del terreno</label>
+<button id="addSite" class="primary">Añadir ubicación a la lista</button><div id="sites"></div><button id="download" disabled>Guardar configuración .csv</button>
+<p class="hint">No inicia descargas de radiación. Guarda este CSV y úsalo con descargar_pvgis.py.</p></section>
+<footer>Búsqueda: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> / <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a>. Los mapas y las búsquedas necesitan Internet.</footer>
+</aside><section class="map-panel"><div id="map" aria-label="Mapa de selección de ubicación"></div><div id="mapStatus" role="status"></div><div class="mapHint">Clic para situar · Arrastra para ajustar · Rueda para ampliar</div></section></main>
+</body></html>

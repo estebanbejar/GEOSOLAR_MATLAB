@@ -1,0 +1,29 @@
+# Resultados y preferencias de cada instalación
+/outputs/*
+!/outputs/.gitkeep
+/data/shared_location.json
+/data/timezones/
+/data/map_tiles/
+
+# Caché PVGIS: se distribuyen únicamente dos ejemplos documentados
+/data/pvgis_tmy/*
+!/data/pvgis_tmy/tmy_v53_40.000000_-5.000000.json
+!/data/pvgis_tmy/tmy_v53_40.459133_-5.814857.json
+
+# Copias de trabajo antiguas; los recursos usados están en assets/ y data/
+/location_picker/
+/PVGIS_*.csv
+
+# Archivos temporales y configuración local
+*.asv
+*.m~
+*.tmp
+*.log
+slprj/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+.env
+.env.*
